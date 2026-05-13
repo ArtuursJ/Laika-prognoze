@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <title>Laika prognoze🌧️</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f2ff;
+            text-align: center;
+            padding: 20px;}
+
+        .container {
+            background: white;
+            padding: 25px;
+            max-width: 400px;
+            margin: 40px auto;
+            border-radius: 10px;}
+
+        h1 {
+            color: #2a7bdc;}
+
+        .temp {
+            font-size: 40px;
+            font-weight: bold;
+            margin: 15px 0;}
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #2a7bdc;
+            text-decoration: none;}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Laika prognoze🌧️</h1>
+
+
+
+    {% if weather %}
+        <h2>{{ weather.city }}</h2>
+
+        <div class="temp">{{ weather.temperature }}°C</div>
+
+        <p>{{ weather.condition }}</p>
+        <p>Jūtas kā: {{ weather.feels_like }}°C</p>
+    {% endif %}
+
+    <a href="/">Atpakaļ</a>
+</div>
+
+</body>
+</html>

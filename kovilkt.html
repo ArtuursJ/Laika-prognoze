@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+
+<style>
+    body {
+
+        background-color: #e6f2ff;
+        text-align: center;
+    }
+
+    .container {
+        margin-top: 50px;
+    }
+
+    input {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    button {
+        padding: 8px 12px;
+        font-size: 14px;
+        background-color: #4da6ff;
+        color: white;
+        border: none;
+
+    button:hover {
+        background-color: #3399ff;
+    }
+</style>
+
+
+<div>
+    <h1>👕 Ko vilkt?</h1>
+
+
+
+    <form method="GET" action="/kovilkt">
+
+        <label>Temperatūra (°C):</label><br>
+        <input type="number" name="temperatura" required><br><br>
+
+        <label>Laikapstākļi:</label><br>
+        <select name="laiks" required>
+            <option value="">Izvēlies</option>
+            <option value="Skaidrs">Skaidrs☀️</option>
+            <option value="Mākoņains">Mākoņains☁️</option>
+            <option value="Lietus">Lietus🌧️</option>
+            <option value="Sniegs">Sniegs❄️</option>
+            <option value="Vējains">Vējains🍃</option>
+        </select><br><br>
+
+     <button type="submit" class="btn btn-primary">OK</button>
+
+    </form>
+
+    {% if apgerbi %}
+        <h3>Ieteikumi:</h3>
+        {% for a in apgerbi %}
+            <p>{{ a.nosaukums }} ({{ a.veids }})</p>
+        {% endfor %}
+    {% endif %}
+
+    <a href="/">Atpakaļ ⬅️</a>
+</div>
+
+
+{% endblock %}
